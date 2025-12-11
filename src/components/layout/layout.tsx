@@ -1,0 +1,16 @@
+import { Footer } from "../footer";
+import { Header } from "../header";
+
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+export const Layout = ({ children }: LayoutProps) => {
+  return (
+    <div className="relative flex flex-col min-h-screen dark">
+      <Header />
+      <main className="flex flex-1 flex-col mb-12">{children}</main>
+      <Footer />
+    </div>
+  );
+};
