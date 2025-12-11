@@ -15,7 +15,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div
       className={cn(
-        "relative flex flex-col min-h-screen bg-gray-700",
+        "relative flex flex-col min-h-screen bg-gray-700 pt-16",
         inter.className,
       )}
     >
