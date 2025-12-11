@@ -9,15 +9,15 @@ type ActiveLinkProps = {
 
 export const ActiveLink = ({ children, href, ...rest }: ActiveLinkProps) => {
   const router = useRouter();
-  const linkPath = rest.as?.toString() || href.toString();
-  const isActive = router.asPath.startsWith(linkPath);
+  const linkPath = rest.as?.toString() || href;
+  const isActive = router.asPath === linkPath;
 
   return (
     <Link
       href={href}
       className={cn(
-        "text-sm font-medium transition-colors hover:text-blue-400",
-        isActive ? "text-blue-500" : "text-muted-foreground",
+        "text-action-sm transition-colors hover:text-blue-200",
+        isActive ? "text-blue-500" : "text-gray-100",
       )}
       {...rest}
     >
