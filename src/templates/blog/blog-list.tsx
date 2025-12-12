@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { Search } from "@/components/search";
+import { PostCard } from "./components/post-card";
 
 export const BlogList = () => {
   const router = useRouter();
@@ -42,6 +43,9 @@ export const BlogList = () => {
       </header>
 
       {/* Post listing */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <PostCard />
+      </div>
     </div>
   );
 };
