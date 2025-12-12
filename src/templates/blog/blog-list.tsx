@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { Search } from "@/components/search";
 
@@ -19,9 +20,20 @@ export const BlogList = () => {
             </span>
 
             {/* Title */}
-            <h1 className="text-balance text-start md:text-left text-heading-lg md:text-heading-xl max-w-2xl text-gray-100">
-              {pageTitle}
-            </h1>
+            <div className="relative overflow-hidden w-full max-w-2xl">
+              <AnimatePresence mode="wait">
+                <motion.h1
+                  key={query ? "search" : "default"}
+                  initial={{ opacity: 0, x: query ? 40 : -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: query ? -40 : 40 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-balance text-start md:text-left text-heading-lg md:text-heading-xl max-w-2xl text-gray-100"
+                >
+                  {pageTitle}
+                </motion.h1>
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Search */}
