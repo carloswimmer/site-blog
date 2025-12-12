@@ -1,7 +1,7 @@
 import { Inter, PT_Sans_Caption } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { Footer } from "../footer";
-import { Header } from "../header";
+import { Footer } from "./footer";
+import { Header } from "./header";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -29,7 +29,7 @@ export const Layout = ({ children }: LayoutProps) => {
       )}
     >
       <Header />
-      <main className="flex flex-1 flex-col mt-10 mb-12">{children}</main>
+      <main className="flex flex-1 flex-col mt-10">{children}</main>
       <Footer />
     </div>
   );

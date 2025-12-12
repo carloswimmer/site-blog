@@ -1,7 +1,7 @@
 import { ArrowRight, Clock, Store } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
@@ -16,23 +16,23 @@ export const HeroSection = () => {
             <div>
               <div className="flex items-center gap-2">
                 <Clock className="text-cyan-100 h-4 w-4" />
-                <span className="text-gray-200">
+                <span className="text-body-md text-gray-200">
                   Create your website in less than 5 minutes.
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
                 <Store className="text-cyan-100 h-4 w-4" />
-                <span className="text-gray-200">
+                <span className="text-body-md text-gray-200">
                   Monitor and optimize your online business.
                 </span>
               </div>
             </div>
 
             <div className="text-white flex flex-col gap-2 mt-5 items-center md:items-start">
-              <Button className="rounded-full" asChild>
+              <Button asChild>
                 <Link href="/create-store">
-                  Create a free store
+                  Create free store
                   <ArrowRight />
                 </Link>
               </Button>

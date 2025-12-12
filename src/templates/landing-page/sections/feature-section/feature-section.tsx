@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export const FeatureSection = () => {
   return (
@@ -35,10 +35,7 @@ export const FeatureSection = () => {
               Have a custom online store that reflects your brand
             </h2>
 
-            <Button
-              asChild
-              className="w-fit rounded-full hidden mt-4 md:mt-auto md:flex"
-            >
+            <Button asChild className="w-fit hidden md:mt-auto md:flex">
               <Link href="/create-store">
                 Create free store
                 <ArrowRight />
@@ -55,10 +52,7 @@ export const FeatureSection = () => {
                 className="object-contain w-full"
               />
             </div>
-            <Button
-              asChild
-              className="w-full gap-2 rounded-full mt-4 md:mt-auto md:hidden"
-            >
+            <Button asChild className="mt-4 md:hidden">
               <Link href="/create-store">
                 Create free store
                 <ArrowRight />
