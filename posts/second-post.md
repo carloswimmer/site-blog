@@ -1,11 +1,11 @@
 ---
-title: Transforming your business into an online store
-description: If you are looking for a simple and effective way to sell your products online, Site.Set is the perfect solution for you.
-date: 2024/12/20 10:20:00
-image: /assets/first-post.png
-author: 
-    name: Aspen Dokidis
-    avatar: /customer-01.png
+title: 5 reasons to choose Site.Set
+description: Site.Set offers everything you need to create an efficient and personalized online store. From payment system integration to creating sales pages, see why thousands of entrepreneurs choose our platform.
+date: 2024-11-16 10:20:00
+image: /assets/second-post.png
+author:
+  name: Dulce Westervelt
+  avatar: /customer-03.png
 ---
 
 If you are looking for a simple and effective way to sell your products online, Site.Set is the perfect solution for you. Creating a successful online store has never been easier. With our intuitive platform, you can create a professional website for your store in minutes, without needing technical knowledge.
