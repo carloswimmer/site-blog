@@ -1,4 +1,5 @@
 import { allPosts } from "contentlayer/generated";
+import { Check, Link2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -11,6 +12,9 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import { useClipboard } from "@/hooks/use-clipboard";
+import { useShare } from "@/hooks/use-share";
 
 export default function PostPage() {
   const router = useRouter();
@@ -19,6 +23,14 @@ export default function PostPage() {
     (post) => post.slug.toLowerCase() === slug.toLowerCase(),
   );
   const publishedDate = new Date(post?.date ?? "").toLocaleDateString("en-US");
+  const postUrl = `${process.env.NEXT_PUBLIC_APP_URL}/blog/${slug}`;
+
+  const { shareButtons } = useShare({
+    url: postUrl,
+    title: post?.title ?? "",
+    text: post?.description ?? "",
+  });
+  const { isCopied, handleCopy } = useClipboard({ timeout: 2000 });
 
   return (
     <main className="mt-16 md:mt-24 text-gray-100">
@@ -79,6 +91,39 @@ export default function PostPage() {
               <Markdown content={post?.body.raw ?? ""} />
             </div>
           </article>
+
+          <aside className="space-y-6">
+            <div className="rounded-lg bg-gray-700 ">
+              <h2 className="mb-4 text-heading-xs text-gray-100">Share</h2>
+
+              <div className="flex flex-wrap lg:flex-col justify-between sm:justify-start gap-3">
+                {shareButtons.map((item) => (
+                  <Button
+                    key={item.provider}
+                    variant="outline"
+                    className="lg:w-full justify-start gap-2 rounded-full lg:rounded-md"
+                    onClick={item.action}
+                  >
+                    {item.icon}
+                    <span className="hidden lg:block">{item.name}</span>
+                  </Button>
+                ))}
+
+                <Button
+                  variant="outline"
+                  className="lg:w-full justify-start gap-2 rounded-full lg:rounded-md"
+                  onClick={() => handleCopy(postUrl)}
+                >
+                  {isCopied ? (
+                    <Check className="h-4 w-4" />
+                  ) : (
+                    <Link2 className="h-4 w-4" />
+                  )}
+                  <span className="hidden lg:block">Copy Link</span>
+                </Button>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </main>
