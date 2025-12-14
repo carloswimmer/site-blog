@@ -21,7 +21,7 @@ export default function PostPage() {
   const publishedDate = new Date(post?.date ?? "").toLocaleDateString("en-US");
 
   return (
-    <main className="mt-32 text-gray-100">
+    <main className="mt-16 md:mt-24 text-gray-100">
       <div className="container space-y-12 px-4 md:px-8">
         <Breadcrumb>
           <BreadcrumbList>
@@ -63,8 +63,7 @@ export default function PostPage() {
                 <Avatar.Image
                   src={post?.author.avatar ?? ""}
                   alt={post?.author.name ?? ""}
-                  width={40}
-                  height={40}
+                  size="sm"
                 />
                 <Avatar.Content>
                   <Avatar.Title>{post?.author.name}</Avatar.Title>

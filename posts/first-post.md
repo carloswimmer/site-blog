@@ -5,7 +5,7 @@ date: 2024/12/20 10:20:00
 image: /assets/first-post.png
 author: 
     name: Aspen Dokidis
-    avatar: /customer-01.png
+    avatar: /customer-04.png
 ---
 
 If you are looking for a simple and effective way to sell your products online, Site.Set is the perfect solution for you. Creating a successful online store has never been easier. With our intuitive platform, you can create a professional website for your store in minutes, without needing technical knowledge.
