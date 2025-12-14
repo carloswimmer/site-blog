@@ -27,8 +27,8 @@ export const PostPage = () => {
 
   const { shareButtons } = useShare({
     url: postUrl,
-    title: post?.title ?? "",
-    text: post?.description ?? "",
+    title: post?.title,
+    text: post?.description,
   });
   const { isCopied, handleCopy } = useClipboard({ timeout: 2000 });
 
