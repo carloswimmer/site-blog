@@ -1,8 +1,7 @@
-import { allPosts } from "contentlayer/generated";
+import type { Post } from "contentlayer/generated";
 import { Check, LinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Avatar } from "@/components/avatar";
 import { Markdown } from "@/components/markdown/markdown";
 import {
@@ -16,14 +15,13 @@ import { Button } from "@/components/ui/button";
 import { useClipboard } from "@/hooks/use-clipboard";
 import { useShare } from "@/hooks/use-share";
 
-export const PostPage = () => {
-  const router = useRouter();
-  const slug = (router.query.slug as string) ?? "";
-  const post = allPosts.find(
-    (post) => post.slug.toLowerCase() === slug.toLowerCase(),
-  );
+export type PostPageProps = {
+  post: Post;
+};
+
+export const PostPage = ({ post }: PostPageProps) => {
   const publishedDate = new Date(post?.date ?? "").toLocaleDateString("en-US");
-  const postUrl = `${process.env.NEXT_PUBLIC_APP_URL}/blog/${slug}`;
+  const postUrl = `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`;
 
   const { shareButtons } = useShare({
     url: postUrl,
