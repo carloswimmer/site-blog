@@ -1,7 +1,9 @@
+"use client";
+
 import type { Post } from "contentlayer/generated";
 import { AnimatePresence, motion } from "framer-motion";
 import { Inbox } from "lucide-react";
-import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 import { Search } from "@/components/search";
 import { PostCard } from "./components/post-card";
 import { PostGrid } from "./components/post-grid";
@@ -11,8 +13,8 @@ export type BlogListProps = {
 };
 
 export const BlogList = ({ posts }: BlogListProps) => {
-  const router = useRouter();
-  const query = router.query.q as string;
+  const searchParams = useSearchParams();
+  const query = searchParams?.get("q") ?? "";
   const pageTitle = query
     ? `Search results for "${query}"`
     : "Tips and strategies to boost your business";
