@@ -4,10 +4,7 @@ import { useState } from "react";
 import ErrorBoundary from "@/app/error";
 import Loading from "@/app/loading";
 import { Button } from "@/components/ui/button";
-import {
-  type UserListProps,
-  useMockedEvents,
-} from "@/hooks/use-mocked-events/use-mocked-events";
+import { type UserListProps, useMockedEvents } from "@/hooks/use-mocked-events";
 
 /** Component to simulate loading and error states on client component */
 export const UserList = () => {
