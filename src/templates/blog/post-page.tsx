@@ -16,9 +16,25 @@ export type PostPageProps = {
   post: Post;
 };
 
+const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    return process.env.NEXT_PUBLIC_APP_URL;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  return "http://localhost:3000";
+};
+
 export const PostPage = ({ post }: PostPageProps) => {
   const publishedDate = new Date(post?.date ?? "").toLocaleDateString("en-US");
-  const postUrl = `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`;
+  const baseUrl = getBaseUrl();
+  const postUrl = `${baseUrl}/blog/${post?.slug}`;
+
+  console.log("NEXT_PUBLIC_APP_URL:", process.env.NEXT_PUBLIC_APP_URL);
+  console.log("postUrl gerada:", postUrl);
 
   return (
     <main className="py-20 text-gray-100">
